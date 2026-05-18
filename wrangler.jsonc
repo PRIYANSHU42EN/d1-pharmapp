@@ -1,0 +1,27 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "d1-pharmapp",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-03-03",
+    "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "pharmaapp",
+          "database_id": "30a27b14-0fb2-4db2-9e54-dc57cfa20174"
+        }
+    ],
+    "secrets_store_secrets": [
+        {
+            "store_id": "1bf2fbfeeb184cb087aa1852796a77cd",
+            "binding": "SECRET",
+            "secret_name": "pharmaaap"
+        }
+    ],
+	"observability": {
+		"enabled": true
+	}
+}
