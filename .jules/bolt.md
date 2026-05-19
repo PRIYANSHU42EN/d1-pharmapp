@@ -1,0 +1,3 @@
+## 2024-05-19 - Hono Route Instantiation and Secrets Caching
+**Learning:** Instantiating Hono and setting up routes inside the `fetch` handler of a Cloudflare Worker forces the radix routing tree to rebuild on every single request. Caching Cloudflare worker environment variables/secrets outside the `fetch` scope reduces unnecessary asynchronous calls per request.
+**Action:** Always instantiate Hono and set up routes globally, outside the `fetch` handler (`const app = new Hono()`). Export the app directly instead of wrapping it. Additionally, cache async fetched secrets globally to reuse them across requests in the same isolate.
